@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */; };
 		3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */; };
-		3B2B61722AD9B2AE00428AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61712AD9B2AE00428AB4 /* ViewController.swift */; };
+		3B2B61722AD9B2AE00428AB4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61712AD9B2AE00428AB4 /* HomeViewController.swift */; };
 		3B2B61772AD9B2AF00428AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */; };
 		3B2B61852AD9B2AF00428AB4 /* mmtalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61842AD9B2AF00428AB4 /* mmtalkTests.swift */; };
 		3B2B619F2AD9B55A00428AB4 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B619E2AD9B55A00428AB4 /* RxBlocking */; };
@@ -35,7 +35,7 @@
 		3B2B616A2AD9B2AE00428AB4 /* mmtalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mmtalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B2B61712AD9B2AE00428AB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B2B61712AD9B2AE00428AB4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B2B617B2AD9B2AF00428AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B2B61802AD9B2AF00428AB4 /* mmtalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mmtalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,7 +185,7 @@
 		3B3AED9A2AD9BC140070197C /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				3B2B61712AD9B2AE00428AB4 /* ViewController.swift */,
+				3B2B61712AD9B2AE00428AB4 /* HomeViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			files = (
 				3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */,
 				3B3AED982AD9BBE00070197C /* AppCoordinator.swift in Sources */,
-				3B2B61722AD9B2AE00428AB4 /* ViewController.swift in Sources */,
+				3B2B61722AD9B2AE00428AB4 /* HomeViewController.swift in Sources */,
 				3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */,
 				3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */,
 				3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */,

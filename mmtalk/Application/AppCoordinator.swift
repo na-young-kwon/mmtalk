@@ -34,13 +34,31 @@ final class AppCoordinator: Coordinator {
         tabBarController.selectedIndex = TabBarPage.home.pageNumber
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.tabBar.tintColor = .black
+        configureTabBarShadow(tabBar: tabBarController.tabBar)
     }
     
     private func makeTabNavigationController(of page: TabBarPage) -> UINavigationController {
         let navigationController = UINavigationController()
-        navigationController.tabBarItem = UITabBarItem(title: page.stringValue, image: UIImage(named: page.imageName), selectedImage: nil)
-        navigationController.pushViewController(ViewController(), animated: false)
+        navigationController.tabBarItem = UITabBarItem(
+            title: page.stringValue,
+            image: UIImage(named: page.imageName),
+            selectedImage: nil
+        )
+        navigationController.pushViewController(HomeViewController(), animated: false)
         return navigationController
+    }
+    
+    private func configureTabBarShadow(tabBar: UITabBar) {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.shadowColor = .clear
+        appearance.backgroundColor = .white
+        tabBar.standardAppearance = appearance
+        tabBar.layer.masksToBounds = false
+        tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBar.layer.shadowOpacity = 0.15
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.layer.shadowRadius = 6
     }
 }
 
