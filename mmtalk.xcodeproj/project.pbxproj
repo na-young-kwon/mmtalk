@@ -10,15 +10,12 @@
 		3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */; };
 		3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */; };
 		3B2B61722AD9B2AE00428AB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61712AD9B2AE00428AB4 /* ViewController.swift */; };
-		3B2B61752AD9B2AE00428AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B61732AD9B2AE00428AB4 /* Main.storyboard */; };
 		3B2B61772AD9B2AF00428AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */; };
-		3B2B617A2AD9B2AF00428AB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B61782AD9B2AF00428AB4 /* LaunchScreen.storyboard */; };
 		3B2B61852AD9B2AF00428AB4 /* mmtalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61842AD9B2AF00428AB4 /* mmtalkTests.swift */; };
 		3B2B619F2AD9B55A00428AB4 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B619E2AD9B55A00428AB4 /* RxBlocking */; };
 		3B2B61A12AD9B55A00428AB4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A02AD9B55A00428AB4 /* RxCocoa */; };
 		3B2B61A32AD9B55A00428AB4 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A22AD9B55A00428AB4 /* RxRelay */; };
 		3B2B61A52AD9B55A00428AB4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A42AD9B55A00428AB4 /* RxSwift */; };
-		3B2B61A72AD9B55A00428AB4 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A62AD9B55A00428AB4 /* RxTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +33,11 @@
 		3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3B2B61712AD9B2AE00428AB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3B2B61742AD9B2AE00428AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B2B61792AD9B2AF00428AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B2B617B2AD9B2AF00428AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B2B61802AD9B2AF00428AB4 /* mmtalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mmtalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2B61842AD9B2AF00428AB4 /* mmtalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mmtalkTests.swift; sourceTree = "<group>"; };
+		3B2B61A92AD9B79C00428AB4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B2B61A72AD9B55A00428AB4 /* RxTest in Frameworks */,
 				3B2B61A32AD9B55A00428AB4 /* RxRelay in Frameworks */,
 				3B2B61A12AD9B55A00428AB4 /* RxCocoa in Frameworks */,
 				3B2B61A52AD9B55A00428AB4 /* RxSwift in Frameworks */,
@@ -73,6 +68,7 @@
 				3B2B616C2AD9B2AE00428AB4 /* mmtalk */,
 				3B2B61832AD9B2AF00428AB4 /* mmtalkTests */,
 				3B2B616B2AD9B2AE00428AB4 /* Products */,
+				3B2B61A82AD9B79C00428AB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,9 +87,7 @@
 				3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */,
 				3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */,
 				3B2B61712AD9B2AE00428AB4 /* ViewController.swift */,
-				3B2B61732AD9B2AE00428AB4 /* Main.storyboard */,
 				3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */,
-				3B2B61782AD9B2AF00428AB4 /* LaunchScreen.storyboard */,
 				3B2B617B2AD9B2AF00428AB4 /* Info.plist */,
 			);
 			path = mmtalk;
@@ -105,6 +99,14 @@
 				3B2B61842AD9B2AF00428AB4 /* mmtalkTests.swift */,
 			);
 			path = mmtalkTests;
+			sourceTree = "<group>";
+		};
+		3B2B61A82AD9B79C00428AB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B2B61A92AD9B79C00428AB4 /* XCTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +130,6 @@
 				3B2B61A02AD9B55A00428AB4 /* RxCocoa */,
 				3B2B61A22AD9B55A00428AB4 /* RxRelay */,
 				3B2B61A42AD9B55A00428AB4 /* RxSwift */,
-				3B2B61A62AD9B55A00428AB4 /* RxTest */,
 			);
 			productName = mmtalk;
 			productReference = 3B2B616A2AD9B2AE00428AB4 /* mmtalk.app */;
@@ -198,9 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B2B617A2AD9B2AF00428AB4 /* LaunchScreen.storyboard in Resources */,
 				3B2B61772AD9B2AF00428AB4 /* Assets.xcassets in Resources */,
-				3B2B61752AD9B2AE00428AB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,25 +240,6 @@
 			targetProxy = 3B2B61812AD9B2AF00428AB4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3B2B61732AD9B2AE00428AB4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B2B61742AD9B2AE00428AB4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3B2B61782AD9B2AF00428AB4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B2B61792AD9B2AF00428AB4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3B2B61922AD9B2AF00428AB4 /* Debug */ = {
@@ -388,7 +368,6 @@
 				INFOPLIST_FILE = mmtalk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -419,7 +398,6 @@
 				INFOPLIST_FILE = mmtalk/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,11 +525,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B2B619D2AD9B55A00428AB4 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		3B2B61A62AD9B55A00428AB4 /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B2B619D2AD9B55A00428AB4 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
