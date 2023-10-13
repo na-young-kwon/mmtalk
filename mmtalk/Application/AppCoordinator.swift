@@ -9,21 +9,22 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
     private let window: UIWindow
-    private let tabBarController = UITabBarController()
+    var tabBarController: UITabBarController
     var childCoordinators: [Coordinator] = []
     
     init(window: UIWindow) {
         self.window = window
+        self.tabBarController = UITabBarController()
     }
     
     func start() {
         let pages = TabBarPage.allCases
         let controllers = pages.map { makeTabNavigationController(of: $0) }
         configureTabBar(with: controllers)
-        showTabBar()
+        configureRootView()
     }
     
-    private func showTabBar() {
+    private func configureRootView() {
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
     }
@@ -36,9 +37,10 @@ final class AppCoordinator: Coordinator {
     }
     
     private func makeTabNavigationController(of page: TabBarPage) -> UINavigationController {
-        let nav = UINavigationController()
-        nav.tabBarItem = UITabBarItem(title: page.stringValue, image: nil, selectedImage: nil)
-        return nav
+        let navigationController = UINavigationController()
+        navigationController.tabBarItem = UITabBarItem(title: page.stringValue, image: UIImage(named: page.imageName), selectedImage: nil)
+        navigationController.pushViewController(ViewController(), animated: false)
+        return navigationController
     }
 }
 
