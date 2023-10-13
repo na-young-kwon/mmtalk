@@ -16,6 +16,9 @@
 		3B2B61A12AD9B55A00428AB4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A02AD9B55A00428AB4 /* RxCocoa */; };
 		3B2B61A32AD9B55A00428AB4 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A22AD9B55A00428AB4 /* RxRelay */; };
 		3B2B61A52AD9B55A00428AB4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B61A42AD9B55A00428AB4 /* RxSwift */; };
+		3B3AED982AD9BBE00070197C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AED972AD9BBE00070197C /* AppCoordinator.swift */; };
+		3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AED9B2AD9BC220070197C /* Coordinator.swift */; };
+		3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AED9D2AD9BC4D0070197C /* TabBarPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		3B2B61802AD9B2AF00428AB4 /* mmtalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mmtalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2B61842AD9B2AF00428AB4 /* mmtalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mmtalkTests.swift; sourceTree = "<group>"; };
 		3B2B61A92AD9B79C00428AB4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3B3AED972AD9BBE00070197C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3B3AED9B2AD9BC220070197C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3B3AED9D2AD9BC4D0070197C /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B18AC592AD9BB35004D0825 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */,
+				3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */,
+				3B3AED972AD9BBE00070197C /* AppCoordinator.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3B18AC5A2AD9BB3E004D0825 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AED992AD9BC110070197C /* Common */,
+				3B3AED9A2AD9BC140070197C /* Scene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3B18AC5B2AD9BB5E004D0825 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3B18AC5C2AD9BB61004D0825 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3B18AC5D2AD9BB63004D0825 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3B18AC5E2AD9BB6B004D0825 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3B18AC5F2AD9BB82004D0825 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		3B2B61612AD9B2AE00428AB4 = {
 			isa = PBXGroup;
 			children = (
@@ -84,11 +145,14 @@
 		3B2B616C2AD9B2AE00428AB4 /* mmtalk */ = {
 			isa = PBXGroup;
 			children = (
-				3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */,
-				3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */,
-				3B2B61712AD9B2AE00428AB4 /* ViewController.swift */,
-				3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */,
 				3B2B617B2AD9B2AF00428AB4 /* Info.plist */,
+				3B18AC592AD9BB35004D0825 /* Application */,
+				3B18AC5A2AD9BB3E004D0825 /* Presentation */,
+				3B18AC5B2AD9BB5E004D0825 /* Domain */,
+				3B18AC5C2AD9BB61004D0825 /* Data */,
+				3B18AC5D2AD9BB63004D0825 /* Network */,
+				3B18AC5E2AD9BB6B004D0825 /* Utility */,
+				3B18AC5F2AD9BB82004D0825 /* Resource */,
 			);
 			path = mmtalk;
 			sourceTree = "<group>";
@@ -107,6 +171,23 @@
 				3B2B61A92AD9B79C00428AB4 /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B3AED992AD9BC110070197C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AED9B2AD9BC220070197C /* Coordinator.swift */,
+				3B3AED9D2AD9BC4D0070197C /* TabBarPage.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3B3AED9A2AD9BC140070197C /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				3B2B61712AD9B2AE00428AB4 /* ViewController.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */,
+				3B3AED982AD9BBE00070197C /* AppCoordinator.swift in Sources */,
 				3B2B61722AD9B2AE00428AB4 /* ViewController.swift in Sources */,
+				3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */,
 				3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */,
 				3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */,
 			);
