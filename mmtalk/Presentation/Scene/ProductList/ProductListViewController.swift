@@ -17,6 +17,8 @@ final class ProductListViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseID)
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -25,8 +27,7 @@ final class ProductListViewController: UIViewController {
         
         view.backgroundColor = .white
         configureNavigationBar()
-        configureHierarchy()
-        configureConstraint()
+        configureUI()
         bindViewModel()
     }
     
@@ -40,28 +41,32 @@ final class ProductListViewController: UIViewController {
         navigationItem.title = "쇼핑몰"
     }
     
-    private func configureHierarchy() {
+    private func configureUI() {
         view.addSubview(collectionView)
-    }
-    
-    private func configureConstraint() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
     private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                              heightDimension: .estimated(70))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalWidth(1.0))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let spacing = CGFloat(10)
-        group.interItemSpacing = .fixed(spacing)
+        let item = NSCollectionLayoutItem(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(70)
+            )
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(150)
+            ),
+            subitem: item,
+            count: 2
+        )
+        group.interItemSpacing = .fixed(CGFloat(10))
         let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
     private func bindViewModel() {
@@ -70,8 +75,17 @@ final class ProductListViewController: UIViewController {
         let output = viewModel.transform(input: input)
         
         output.products
-            .subscribe(onNext: { products in
-                print(products)
+            .bind(
+                to: collectionView.rx.items(
+                    cellIdentifier: ProductCell.reuseID, cellType: ProductCell.self)
+            ) { index, item, cell  in
+                cell.bindViewModel(with: item)
+            }
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(Product.self)
+            .subscribe(onNext: { product in
+//                print(product)
             })
             .disposed(by: disposeBag)
     }

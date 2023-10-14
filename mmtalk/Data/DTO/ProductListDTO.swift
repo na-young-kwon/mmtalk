@@ -20,7 +20,7 @@ struct ProductListDTO: APIResponse {
             name: $0.name,
             brand: $0.brand,
             discountRate: String($0.discountRate),
-            sellPrice: String($0.sellPrice),
+            sellPrice: String($0.sellPrice.decimalFormat ?? "0"),
             reviewCount: String($0.reviewCount),
             reviewAverage: String($0.reviewAverage),
             tags: $0.tags,

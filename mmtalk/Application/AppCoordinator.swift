@@ -72,4 +72,3 @@ final class AppCoordinator: Coordinator {
         tabBar.layer.shadowRadius = 6
     }
 }
-
