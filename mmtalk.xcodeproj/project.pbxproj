@@ -39,6 +39,8 @@
 		3B3AEDD02ADAC9240070197C /* DefaultProductListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDCF2ADAC9240070197C /* DefaultProductListUseCase.swift */; };
 		3B3AEDD22ADAC9BA0070197C /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDD12ADAC9BA0070197C /* ProductRepository.swift */; };
 		3B3AEDD52ADACA960070197C /* DefaultProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDD42ADACA960070197C /* DefaultProductRepository.swift */; };
+		3B3AEDD72ADACFD90070197C /* ProductDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDD62ADACFD90070197C /* ProductDetailRequest.swift */; };
+		3B3AEDD92ADAD0130070197C /* ProductDetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDD82ADAD0130070197C /* ProductDetailDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		3B3AEDCF2ADAC9240070197C /* DefaultProductListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductListUseCase.swift; sourceTree = "<group>"; };
 		3B3AEDD12ADAC9BA0070197C /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		3B3AEDD42ADACA960070197C /* DefaultProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductRepository.swift; sourceTree = "<group>"; };
+		3B3AEDD62ADACFD90070197C /* ProductDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRequest.swift; sourceTree = "<group>"; };
+		3B3AEDD82ADAD0130070197C /* ProductDetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +304,7 @@
 			children = (
 				3B3AEDBC2ADA970A0070197C /* ProductService.swift */,
 				3B3AEDBE2ADA98790070197C /* ProductListRequest.swift */,
+				3B3AEDD62ADACFD90070197C /* ProductDetailRequest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				3B3AEDC02ADA9AF90070197C /* ProductListDTO.swift */,
+				3B3AEDD82ADAD0130070197C /* ProductDetailDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 			files = (
 				3B3AEDD52ADACA960070197C /* DefaultProductRepository.swift in Sources */,
 				3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */,
+				3B3AEDD72ADACFD90070197C /* ProductDetailRequest.swift in Sources */,
 				3B3AEDCE2ADAC8E90070197C /* ProductListUseCase.swift in Sources */,
 				3B3AEDBD2ADA970A0070197C /* ProductService.swift in Sources */,
 				3B3AEDD22ADAC9BA0070197C /* ProductRepository.swift in Sources */,
@@ -468,6 +475,7 @@
 				3B3AEDB32ADA91CB0070197C /* APIResponse.swift in Sources */,
 				3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */,
 				3B3AEDC52ADAAE780070197C /* ViewModelType.swift in Sources */,
+				3B3AEDD92ADAD0130070197C /* ProductDetailDTO.swift in Sources */,
 				3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */,
 				3B3AEDBF2ADA98790070197C /* ProductListRequest.swift in Sources */,
 				3B3AEDB12ADA91C30070197C /* APIRequest.swift in Sources */,

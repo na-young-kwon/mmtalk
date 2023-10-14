@@ -19,4 +19,9 @@ final class ProductService {
         let request = ProductListRequest(offset: offset)
         return apiProvider.requestTask(with: request)
     }
+    
+    func fetchProductDetail(for hash: String) -> Observable<ProductDetailDTO> {
+        let request = ProductDetailRequest(hash: hash)
+        return apiProvider.requestTask(with: request)
+    }
 }

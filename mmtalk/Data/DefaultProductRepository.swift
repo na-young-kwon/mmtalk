@@ -18,4 +18,8 @@ final class DefaultProductRepository: ProductRepository {
     func fetchProductList(for offset: String) -> Observable<ProductListDTO> {
         service.fetchProductList(offset: offset)
     }
+    
+    func fetchProductDetail(for hash: String) -> Observable<ProductDetailDTO> {
+        service.fetchProductDetail(for: hash)
+    }
 }
