@@ -17,6 +17,7 @@ final class ProductListViewModel: ViewModelType {
     }
     
     struct Output {
+        let products = BehaviorRelay<[Product]>(value: [])
     }
     
     private let useCase: ProductListUseCase
@@ -32,7 +33,7 @@ final class ProductListViewModel: ViewModelType {
         
         useCase.products
             .subscribe(onNext: { products in
-                print(products)
+                output.products.accept(products)
             })
             .disposed(by: disposeBag)
         

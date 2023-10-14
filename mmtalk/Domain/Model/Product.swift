@@ -8,8 +8,9 @@
 import Foundation
 
 struct Product {
+    let hash: String
     let name: String
-    let brand: String
+    let brand: String?
     let discountRate: String
     let sellPrice: String
     let reviewCount: String

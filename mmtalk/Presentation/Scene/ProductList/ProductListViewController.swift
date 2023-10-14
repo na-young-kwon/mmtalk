@@ -12,6 +12,7 @@ import RxCocoa
 
 final class ProductListViewController: UIViewController {
     var viewModel: ProductListViewModel!
+    private let disposeBag = DisposeBag()
     
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
@@ -67,5 +68,11 @@ final class ProductListViewController: UIViewController {
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
         let input = ProductListViewModel.Input(viewWillAppear: viewWillAppear)
         let output = viewModel.transform(input: input)
+        
+        output.products
+            .subscribe(onNext: { products in
+                print(products)
+            })
+            .disposed(by: disposeBag)
     }
 }

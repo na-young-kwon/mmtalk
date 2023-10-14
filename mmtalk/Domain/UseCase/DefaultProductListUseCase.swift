@@ -20,8 +20,8 @@ final class DefaultProductListUseCase: ProductListUseCase {
     
     func fetchProducts(for offset: String) {
         productRepository.fetchProductList(for: offset)
-            .subscribe(onNext: { products in
-                print(products)
+            .subscribe(onNext: { productListDTO in
+                self.products.onNext(productListDTO.productList)
             })
             .disposed(by: disposeBag)
     }

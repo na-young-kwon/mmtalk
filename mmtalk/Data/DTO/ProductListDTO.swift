@@ -8,30 +8,47 @@
 import Foundation
 
 struct ProductListDTO: APIResponse {
-    let meta: Meta
-    let products: [Product]
+    private let meta: Meta
+    private let products: [ProductList]
+    
+    var productList: [Product] {
+        if products.isEmpty {
+            return []
+        }
+        return products.map { Product(
+            hash: $0.hash,
+            name: $0.name,
+            brand: $0.brand,
+            discountRate: String($0.discountRate),
+            sellPrice: String($0.sellPrice),
+            reviewCount: String($0.reviewCount),
+            reviewAverage: String($0.reviewAverage),
+            tags: $0.tags,
+            imageURL: $0.imageURL
+        )}
+    }
     
     // Meta
-    struct Meta: Decodable {
+    private struct Meta: Decodable {
         let offset: Int
         let limit: Int
         let isFinal: Bool
     }
     
     // Product
-    struct Product: Decodable {
+    struct ProductList: Decodable {
         let hash: String
         let name: String
         let brand: String?
         let sellPrice: Int
-        let normalPrice: Int
-        let soldOut: Bool
         let imageURL: String
         let reviewCount: Int
         let reviewAverage: Int
-        let partnerNo: Int
         let tags: [Tag]
         let discountRate: Int
+        private let partnerNo: Int
+        private let normalPrice: Int
+        private let soldOut: Bool
         
         enum CodingKeys: String, CodingKey {
             case hash, name, brand, soldOut
@@ -42,10 +59,4 @@ struct ProductListDTO: APIResponse {
             case reviewAverage = "reviewAvg"
         }
     }
-}
-
-// Tag
-enum Tag: String, Decodable {
-    case best = "BEST"
-    case freeDelivery = "FREE_DELIVERY"
 }
