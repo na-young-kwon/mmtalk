@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import RxSwift
+
+final class ProductService {
+    let apiProvider: APIProvider
+    
+    init(apiProvider: APIProvider) {
+        self.apiProvider = apiProvider
+    }
+    
+    func fetchProductList(offset: String) -> Observable<ProductListDTO> {
+        let request = ProductListRequest(offset: offset)
+        return apiProvider.requestTask(with: request)
+    }
+}

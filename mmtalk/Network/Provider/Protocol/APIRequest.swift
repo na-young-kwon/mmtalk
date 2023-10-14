@@ -14,6 +14,7 @@ protocol APIRequest {
     var urlHost: String { get }
     var urlPath: String { get }
     var parameters: [String: String] { get }
+    var headers: [String: String]? { get }
 }
 
 extension APIRequest {
@@ -29,11 +30,17 @@ extension APIRequest {
     }
     
     var urlRequest: URLRequest? {
-        guard let url = self.url else {
+        guard let url = url else {
             return nil
         }
         var request = URLRequest(url: url)
-        request.httpMethod = self.httpMethod.rawValue
+        request.httpMethod = httpMethod.rawValue
+        
+        if let headers = headers {
+            headers.forEach { key, value in
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
         return request
     }
 }
