@@ -17,6 +17,15 @@ final class ProductListCoordinator: Coordinator {
     
     func start() {
         let viewController = ProductListViewController()
+        let productService = ProductService(apiProvider: DefaultAPIProvider())
+        let productRepository = DefaultProductRepository(service: productService)
+        
+        viewController.viewModel = ProductListViewModel(
+            useCase: DefaultProductUseCase(
+                productRepository: productRepository
+            ),
+            coordinator: ProductListCoordinator(navigationController)
+        )
         navigationController.pushViewController(viewController, animated: false)
     }
 }
