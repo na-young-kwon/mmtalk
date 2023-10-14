@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class ProductListViewController: UIViewController {
+    var viewModel: ProductListViewModel!
+    
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -22,6 +26,7 @@ final class ProductListViewController: UIViewController {
         configureNavigationBar()
         configureHierarchy()
         configureConstraint()
+        bindViewModel()
     }
     
     private func configureNavigationBar() {
@@ -57,5 +62,10 @@ final class ProductListViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
+    
+    private func bindViewModel() {
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
+        let input = ProductListViewModel.Input(viewWillAppear: viewWillAppear)
+        let output = viewModel.transform(input: input)
+    }
 }
-
