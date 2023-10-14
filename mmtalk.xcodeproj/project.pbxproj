@@ -23,6 +23,13 @@
 		3B3AEDA62ADA7E1F0070197C /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDA52ADA7E1F0070197C /* ProductListCoordinator.swift */; };
 		3B3AEDA92ADA82F00070197C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDA82ADA82F00070197C /* MyPageViewController.swift */; };
 		3B3AEDAB2ADA84480070197C /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDAA2ADA84480070197C /* MyPageCoordinator.swift */; };
+		3B3AEDAF2ADA91BC0070197C /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDAE2ADA91BC0070197C /* APIProvider.swift */; };
+		3B3AEDB12ADA91C30070197C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDB02ADA91C30070197C /* APIRequest.swift */; };
+		3B3AEDB32ADA91CB0070197C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDB22ADA91CB0070197C /* APIResponse.swift */; };
+		3B3AEDB52ADA91DC0070197C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDB42ADA91DC0070197C /* HTTPMethod.swift */; };
+		3B3AEDB72ADA91EC0070197C /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDB62ADA91EC0070197C /* NetworkingError.swift */; };
+		3B3AEDB92ADA92360070197C /* DefaultAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDB82ADA92360070197C /* DefaultAPIProvider.swift */; };
+		3B3AEDBD2ADA970A0070197C /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDBC2ADA970A0070197C /* ProductService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		3B3AEDA52ADA7E1F0070197C /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
 		3B3AEDA82ADA82F00070197C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		3B3AEDAA2ADA84480070197C /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
+		3B3AEDAE2ADA91BC0070197C /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		3B3AEDB02ADA91C30070197C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		3B3AEDB22ADA91CB0070197C /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		3B3AEDB42ADA91DC0070197C /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		3B3AEDB62ADA91EC0070197C /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		3B3AEDB82ADA92360070197C /* DefaultAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIProvider.swift; sourceTree = "<group>"; };
+		3B3AEDBC2ADA970A0070197C /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +126,8 @@
 		3B18AC5D2AD9BB63004D0825 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3B3AEDBA2ADA92450070197C /* Provider */,
+				3B3AEDBB2ADA96F90070197C /* Service */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -225,6 +241,43 @@
 			path = ProductDetail;
 			sourceTree = "<group>";
 		};
+		3B3AEDAC2ADA91AA0070197C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AEDAE2ADA91BC0070197C /* APIProvider.swift */,
+				3B3AEDB02ADA91C30070197C /* APIRequest.swift */,
+				3B3AEDB22ADA91CB0070197C /* APIResponse.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3B3AEDAD2ADA91AE0070197C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AEDB62ADA91EC0070197C /* NetworkingError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		3B3AEDBA2ADA92450070197C /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AEDAC2ADA91AA0070197C /* Protocol */,
+				3B3AEDAD2ADA91AE0070197C /* Error */,
+				3B3AEDB42ADA91DC0070197C /* HTTPMethod.swift */,
+				3B3AEDB82ADA92360070197C /* DefaultAPIProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		3B3AEDBB2ADA96F90070197C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AEDBC2ADA970A0070197C /* ProductService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -336,12 +389,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */,
+				3B3AEDBD2ADA970A0070197C /* ProductService.swift in Sources */,
 				3B3AED982AD9BBE00070197C /* AppCoordinator.swift in Sources */,
 				3B3AEDA62ADA7E1F0070197C /* ProductListCoordinator.swift in Sources */,
 				3B2B61722AD9B2AE00428AB4 /* ProductListViewController.swift in Sources */,
 				3B3AEDAB2ADA84480070197C /* MyPageCoordinator.swift in Sources */,
+				3B3AEDB32ADA91CB0070197C /* APIResponse.swift in Sources */,
 				3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */,
 				3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */,
+				3B3AEDB12ADA91C30070197C /* APIRequest.swift in Sources */,
+				3B3AEDB92ADA92360070197C /* DefaultAPIProvider.swift in Sources */,
+				3B3AEDAF2ADA91BC0070197C /* APIProvider.swift in Sources */,
+				3B3AEDB72ADA91EC0070197C /* NetworkingError.swift in Sources */,
+				3B3AEDB52ADA91DC0070197C /* HTTPMethod.swift in Sources */,
 				3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */,
 				3B3AEDA92ADA82F00070197C /* MyPageViewController.swift in Sources */,
 			);
