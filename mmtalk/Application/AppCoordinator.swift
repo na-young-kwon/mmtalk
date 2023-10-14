@@ -54,7 +54,8 @@ final class AppCoordinator: Coordinator {
             let productListCoordinator = ProductListCoordinator(navigationController)
             productListCoordinator.start()
         case .myPage:
-            print("마이페이지 코디네이터 구현")
+            let myPageCoordinator = MyPageCoordinator(navigationController)
+            myPageCoordinator.start()
         }
     }
     
