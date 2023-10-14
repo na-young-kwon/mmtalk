@@ -21,7 +21,7 @@ final class ProductListCoordinator: Coordinator {
         let productRepository = DefaultProductRepository(service: productService)
         
         viewController.viewModel = ProductListViewModel(
-            useCase: DefaultProductListUseCase(
+            useCase: DefaultProductUseCase(
                 productRepository: productRepository
             ),
             coordinator: ProductListCoordinator(navigationController)

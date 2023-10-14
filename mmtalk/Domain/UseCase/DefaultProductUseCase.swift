@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-final class DefaultProductListUseCase: ProductListUseCase {
+final class DefaultProductUseCase: ProductUseCase {
     private let productRepository: ProductRepository
     private let disposeBag = DisposeBag()
     

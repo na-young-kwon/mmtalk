@@ -20,10 +20,10 @@ final class ProductListViewModel: ViewModelType {
         let products = BehaviorRelay<[Product]>(value: [])
     }
     
-    private let useCase: ProductListUseCase
+    private let useCase: ProductUseCase
     private weak var coordinator: ProductListCoordinator?
     
-    init(useCase: ProductListUseCase, coordinator: ProductListCoordinator?) {
+    init(useCase: ProductUseCase, coordinator: ProductListCoordinator?) {
         self.useCase = useCase
         self.coordinator = coordinator
     }
