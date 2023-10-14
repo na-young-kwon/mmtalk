@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */; };
 		3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */; };
-		3B2B61722AD9B2AE00428AB4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61712AD9B2AE00428AB4 /* HomeViewController.swift */; };
+		3B2B61722AD9B2AE00428AB4 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61712AD9B2AE00428AB4 /* ProductListViewController.swift */; };
 		3B2B61772AD9B2AF00428AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */; };
 		3B2B61852AD9B2AF00428AB4 /* mmtalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B61842AD9B2AF00428AB4 /* mmtalkTests.swift */; };
 		3B2B619F2AD9B55A00428AB4 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2B619E2AD9B55A00428AB4 /* RxBlocking */; };
@@ -19,6 +19,8 @@
 		3B3AED982AD9BBE00070197C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AED972AD9BBE00070197C /* AppCoordinator.swift */; };
 		3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AED9B2AD9BC220070197C /* Coordinator.swift */; };
 		3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AED9D2AD9BC4D0070197C /* TabBarPage.swift */; };
+		3B3AEDA12AD9E6A30070197C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B3AEDA02AD9E6A30070197C /* SnapKit */; };
+		3B3AEDA62ADA7E1F0070197C /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDA52ADA7E1F0070197C /* ProductListCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,7 @@
 		3B2B616A2AD9B2AE00428AB4 /* mmtalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mmtalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2B616D2AD9B2AE00428AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B2B616F2AD9B2AE00428AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B2B61712AD9B2AE00428AB4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3B2B61712AD9B2AE00428AB4 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		3B2B61762AD9B2AF00428AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B2B617B2AD9B2AF00428AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B2B61802AD9B2AF00428AB4 /* mmtalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mmtalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,7 @@
 		3B3AED972AD9BBE00070197C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3B3AED9B2AD9BC220070197C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3B3AED9D2AD9BC4D0070197C /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		3B3AEDA52ADA7E1F0070197C /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,7 @@
 				3B2B61A12AD9B55A00428AB4 /* RxCocoa in Frameworks */,
 				3B2B61A52AD9B55A00428AB4 /* RxSwift in Frameworks */,
 				3B2B619F2AD9B55A00428AB4 /* RxBlocking in Frameworks */,
+				3B3AEDA12AD9E6A30070197C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,9 +189,34 @@
 		3B3AED9A2AD9BC140070197C /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				3B2B61712AD9B2AE00428AB4 /* HomeViewController.swift */,
+				3B3AEDA22AD9EF080070197C /* ProductList */,
+				3B3AEDA42AD9EF330070197C /* ProductDetail */,
+				3B3AEDA32AD9EF2F0070197C /* MyPage */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		3B3AEDA22AD9EF080070197C /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				3B2B61712AD9B2AE00428AB4 /* ProductListViewController.swift */,
+				3B3AEDA52ADA7E1F0070197C /* ProductListCoordinator.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		3B3AEDA32AD9EF2F0070197C /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		3B3AEDA42AD9EF330070197C /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +240,7 @@
 				3B2B61A02AD9B55A00428AB4 /* RxCocoa */,
 				3B2B61A22AD9B55A00428AB4 /* RxRelay */,
 				3B2B61A42AD9B55A00428AB4 /* RxSwift */,
+				3B3AEDA02AD9E6A30070197C /* SnapKit */,
 			);
 			productName = mmtalk;
 			productReference = 3B2B616A2AD9B2AE00428AB4 /* mmtalk.app */;
@@ -264,6 +294,7 @@
 			mainGroup = 3B2B61612AD9B2AE00428AB4;
 			packageReferences = (
 				3B2B619D2AD9B55A00428AB4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				3B3AED9F2AD9E6A30070197C /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 3B2B616B2AD9B2AE00428AB4 /* Products */;
 			projectDirPath = "";
@@ -300,7 +331,8 @@
 			files = (
 				3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */,
 				3B3AED982AD9BBE00070197C /* AppCoordinator.swift in Sources */,
-				3B2B61722AD9B2AE00428AB4 /* HomeViewController.swift in Sources */,
+				3B3AEDA62ADA7E1F0070197C /* ProductListCoordinator.swift in Sources */,
+				3B2B61722AD9B2AE00428AB4 /* ProductListViewController.swift in Sources */,
 				3B3AED9C2AD9BC220070197C /* Coordinator.swift in Sources */,
 				3B2B616E2AD9B2AE00428AB4 /* AppDelegate.swift in Sources */,
 				3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */,
@@ -587,6 +619,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		3B3AED9F2AD9E6A30070197C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -609,6 +649,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B2B619D2AD9B55A00428AB4 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		3B3AEDA02AD9E6A30070197C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B3AED9F2AD9E6A30070197C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

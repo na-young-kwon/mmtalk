@@ -30,8 +30,8 @@ final class AppCoordinator: Coordinator {
     }
     
     private func configureTabBar(with vc: [UIViewController]) {
-        tabBarController.setViewControllers(vc, animated: true)
-        tabBarController.selectedIndex = TabBarPage.home.pageNumber
+        tabBarController.setViewControllers(vc, animated: false)
+        tabBarController.selectedIndex = TabBarPage.productList.pageNumber
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.tabBar.tintColor = .black
         configureTabBarShadow(tabBar: tabBarController.tabBar)
@@ -44,8 +44,18 @@ final class AppCoordinator: Coordinator {
             image: UIImage(named: page.imageName),
             selectedImage: nil
         )
-        navigationController.pushViewController(HomeViewController(), animated: false)
+        startTabCoordinator(of: page, to: navigationController)
         return navigationController
+    }
+    
+    private func startTabCoordinator(of page: TabBarPage, to navigationController: UINavigationController) {
+        switch page {
+        case .productList:
+            let productListCoordinator = ProductListCoordinator(navigationController)
+            productListCoordinator.start()
+        case .myPage:
+            print("마이페이지 코디네이터 구현")
+        }
     }
     
     private func configureTabBarShadow(tabBar: UITabBar) {

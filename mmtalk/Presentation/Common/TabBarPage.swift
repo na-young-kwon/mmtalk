@@ -8,11 +8,11 @@
 import Foundation
 
 enum TabBarPage: CaseIterable {
-    case home, myPage
+    case productList, myPage
     
     init?(index: Int) {
         switch index {
-            case 0: self = .home
+            case 0: self = .productList
             case 1: self = .myPage
             default: return nil
         }
@@ -20,14 +20,14 @@ enum TabBarPage: CaseIterable {
     
     var pageNumber: Int {
         switch self {
-            case .home: return 0
+            case .productList: return 0
             case .myPage: return 1
         }
     }
     
     var imageName: String {
         switch self {
-        case .home:
+        case .productList:
             return "Home"
         case .myPage:
             return "MyPage"
@@ -36,7 +36,7 @@ enum TabBarPage: CaseIterable {
     
     var stringValue: String {
         switch self {
-        case .home:
+        case .productList:
             return "쇼핑몰"
         case .myPage:
             return "내정보"
