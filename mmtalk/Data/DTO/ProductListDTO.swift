@@ -18,7 +18,7 @@ struct ProductListDTO: APIResponse {
         return products.map { Product(
             hash: $0.hash,
             name: $0.name,
-            brand: $0.brand,
+            brand: $0.brand?.trimmingCharacters(in: ["|"]),
             discountRate: String($0.discountRate),
             sellPrice: String($0.sellPrice.decimalFormat ?? "0"),
             reviewCount: String($0.reviewCount),

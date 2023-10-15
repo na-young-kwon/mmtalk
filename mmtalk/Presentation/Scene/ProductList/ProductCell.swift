@@ -21,35 +21,37 @@ final class ProductCell: UICollectionViewCell {
     private let brandLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
-        label.font = .systemFont(ofSize: 13)
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 14)
+        label.font = .boldSystemFont(ofSize: 12)
         return label
     }()
     
     private let discountRateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .red
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 15)
         return label
     }()
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 15)
         return label
     }()
     
     private let tagLabel: UILabel = {
-        let label = UILabel()
+        let label = TagLabel()
         label.textColor = .darkGray
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 5
         label.font = .systemFont(ofSize: 12)
-        label.backgroundColor = .systemGray4
+        label.backgroundColor = .systemGray5
         return label
     }()
     
@@ -65,6 +67,7 @@ final class ProductCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.layer.borderWidth = 1
         imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 5
         imageView.contentMode = .scaleAspectFit
         imageView.layer.borderColor = UIColor.systemGray6.cgColor
         return imageView
@@ -79,6 +82,11 @@ final class ProductCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil
     }
     
     private func configureUI() {
@@ -98,19 +106,23 @@ final class ProductCell: UICollectionViewCell {
             make.edges.equalTo(contentView)
         }
         productImageView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(productImageView.snp.width).multipliedBy(1.0 / 1.0)
+            make.width.equalTo(contentView)
+            make.height.equalTo(contentView.snp.width)
         }
     }
     
     func bindViewModel(with product: Product) {
         brandLabel.text = product.brand
         titleLabel.text = product.name
-        priceLabel.text = product.sellPrice
-        tagLabel.text = product.tags.first?.rawValue ?? nil
+        priceLabel.text = product.sellPrice + "원"
+        if let tag = product.tags.first {
+            tagLabel.text = tag.rawValue
+        } else {
+            tagLabel.isHidden = true
+        }
         discountRateLabel.text = product.discountRate + "%"
         reviewCountLabel.text = product.reviewCount == "0" ? nil : product.reviewCount
         // url로 이미지 로드
-//        productImageView.image = product.imageURL
+//        productImageView.image = UIImage(systemName: "square.and.arrow.up.circle.fill")
     }
 }

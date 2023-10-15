@@ -55,6 +55,12 @@ final class ProductListViewController: UIViewController {
                 heightDimension: .estimated(70)
             )
         )
+        item.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+            leading: nil,
+            top: .fixed(20),
+            trailing: nil,
+            bottom: nil
+        )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
@@ -63,9 +69,9 @@ final class ProductListViewController: UIViewController {
             subitem: item,
             count: 2
         )
-        group.interItemSpacing = .fixed(CGFloat(10))
+        group.interItemSpacing = .fixed(CGFloat(20))
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20)
         return UICollectionViewCompositionalLayout(section: section)
     }
     
@@ -85,7 +91,7 @@ final class ProductListViewController: UIViewController {
         
         collectionView.rx.modelSelected(Product.self)
             .subscribe(onNext: { product in
-//                print(product)
+                print(product)
             })
             .disposed(by: disposeBag)
     }
