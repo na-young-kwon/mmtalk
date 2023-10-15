@@ -14,6 +14,7 @@ final class ProductListViewModel: ViewModelType {
     
     struct Input {
         let viewWillAppear: Observable<Void>
+        let fetchMoreProduct: Observable<Void>
         let itemSelected: Observable<Product>
     }
     
@@ -40,13 +41,19 @@ final class ProductListViewModel: ViewModelType {
         
         input.viewWillAppear
             .subscribe { _ in
-                self.useCase.fetchProducts(for: "0")
+                self.useCase.fetchProducts()
             }
             .disposed(by: disposeBag)
         
         input.itemSelected
             .subscribe { [weak self] product in
                 self?.coordinator.pushDetailView(with: product.hash)
+            }
+            .disposed(by: disposeBag)
+        
+        input.fetchMoreProduct
+            .subscribe { product in
+                self.useCase.fetchProducts()
             }
             .disposed(by: disposeBag)
         

@@ -7,10 +7,11 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol ProductUseCase {
     var productDetail: PublishSubject<ProductDetail> { get }
-    var products: BehaviorSubject<[Product]> { get }
-    func fetchProducts(for offset: String)
+    var products: BehaviorRelay<[Product]> { get }
+    func fetchProducts()
     func fetchProductDetail(for hash: String)
 }

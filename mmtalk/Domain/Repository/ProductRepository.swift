@@ -9,6 +9,6 @@ import Foundation
 import RxSwift
 
 protocol ProductRepository {
-    func fetchProductList(for offset: String) -> Observable<ProductListDTO>
+    func fetchProductList(for offset: Int) -> Observable<ProductListDTO>
     func fetchProductDetail(for hash: String) -> Observable<ProductDetailDTO>
 }

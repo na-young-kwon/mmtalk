@@ -12,6 +12,7 @@ final class ProductDetailViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
+        label.numberOfLines = 0
         label.text = "제목"
         return label
     }()
@@ -33,21 +34,14 @@ final class ProductDetailViewController: UIViewController {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
             make.top.equalToSuperview().offset(120)
         }
     }
     
     private func configureNavigationBar() {
-//        let appearance = UINavigationBarAppearance()
-//        appearance.backgroundColor = .white
-//        appearance.titlePositionAdjustment = UIOffset(horizontal: -(view.frame.width / 2), vertical: 5)
-//        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 15)]
-//        navigationController?.navigationBar.standardAppearance = appearance
-//        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationItem.title = "상품 상세보기"
-        
         let backButton = UIBarButtonItem()
-        backButton.title = ""
+        backButton.title = "상품 상세보기"
         backButton.tintColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }

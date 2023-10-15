@@ -30,7 +30,6 @@ final class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
         configureNavigationBar()
         configureUI()
         bindViewModel()
@@ -39,8 +38,13 @@ final class ProductListViewController: UIViewController {
     private func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .white
-        appearance.titlePositionAdjustment = UIOffset(horizontal: -(view.frame.width / 2), vertical: 5)
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)]
+        appearance.titlePositionAdjustment = UIOffset(
+            horizontal: -(view.frame.width / 2),
+            vertical: 5
+        )
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)
+        ]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.title = "쇼핑몰"
@@ -82,16 +86,22 @@ final class ProductListViewController: UIViewController {
     
     private func bindViewModel() {
         let selectedLocation = PublishSubject<Product>()
-        
+        let fetchMoreProduct = PublishSubject<Void>()
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
-        let input = ProductListViewModel.Input(viewWillAppear: viewWillAppear, itemSelected: selectedLocation.asObservable())
+        
+        let input = ProductListViewModel.Input(
+            viewWillAppear: viewWillAppear,
+            fetchMoreProduct: fetchMoreProduct.asObserver(),
+            itemSelected: selectedLocation.asObservable()
+        )
         let output = viewModel.transform(input: input)
         
         output.products
             .bind(
                 to: collectionView.rx.items(
-                    cellIdentifier: ProductCell.reuseID, cellType: ProductCell.self)
-            ) { index, item, cell  in
+                    cellIdentifier: ProductCell.reuseID,
+                    cellType: ProductCell.self)
+            ) { _, item, cell  in
                 cell.bindViewModel(with: item)
             }
             .disposed(by: disposeBag)
@@ -99,6 +109,20 @@ final class ProductListViewController: UIViewController {
         collectionView.rx.modelSelected(Product.self)
             .subscribe(onNext: { product in
                 selectedLocation.onNext(product)
+            })
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.didScroll
+            .skip(1)
+            .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                let offsetY = self.collectionView.contentOffset.y
+                let contentHeight = self.collectionView.contentSize.height
+                let height = self.collectionView.frame.height
+                
+                if offsetY > (contentHeight - height) {
+                    fetchMoreProduct.onNext(())
+                }
             })
             .disposed(by: disposeBag)
     }
