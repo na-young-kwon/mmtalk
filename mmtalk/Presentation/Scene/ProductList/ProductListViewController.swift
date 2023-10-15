@@ -11,9 +11,6 @@ import RxSwift
 import RxCocoa
 
 final class ProductListViewController: UIViewController {
-    var viewModel: ProductListViewModel!
-    private let disposeBag = DisposeBag()
-    
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -21,6 +18,14 @@ final class ProductListViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
+    
+    var viewModel: ProductListViewModel!
+    private let disposeBag = DisposeBag()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +81,10 @@ final class ProductListViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        let selectedLocation = PublishSubject<Product>()
+        
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
-        let input = ProductListViewModel.Input(viewWillAppear: viewWillAppear)
+        let input = ProductListViewModel.Input(viewWillAppear: viewWillAppear, itemSelected: selectedLocation.asObservable())
         let output = viewModel.transform(input: input)
         
         output.products
@@ -91,7 +98,7 @@ final class ProductListViewController: UIViewController {
         
         collectionView.rx.modelSelected(Product.self)
             .subscribe(onNext: { product in
-                print(product)
+                selectedLocation.onNext(product)
             })
             .disposed(by: disposeBag)
     }

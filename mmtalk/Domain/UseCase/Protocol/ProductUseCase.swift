@@ -9,6 +9,8 @@ import Foundation
 import RxSwift
 
 protocol ProductUseCase {
+    var productDetail: PublishSubject<ProductDetail> { get }
     var products: BehaviorSubject<[Product]> { get }
     func fetchProducts(for offset: String)
+    func fetchProductDetail(for hash: String)
 }
