@@ -50,6 +50,7 @@
 		3B3AEDE72ADBECD40070197C /* ProductDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDE62ADBECD40070197C /* ProductDetailCoordinator.swift */; };
 		3B3AEDE92ADBF1950070197C /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDE82ADBF1950070197C /* ProductDetailViewModel.swift */; };
 		3B3AEDEB2ADBF86D0070197C /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDEA2ADBF86D0070197C /* ProductDetail.swift */; };
+		3B3AEDEF2ADD44870070197C /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		3B3AEDE62ADBECD40070197C /* ProductDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailCoordinator.swift; sourceTree = "<group>"; };
 		3B3AEDE82ADBF1950070197C /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		3B3AEDEA2ADBF86D0070197C /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
+		3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 				3B2B61712AD9B2AE00428AB4 /* ProductListViewController.swift */,
 				3B3AEDA52ADA7E1F0070197C /* ProductListCoordinator.swift */,
 				3B3AEDC22ADAAE590070197C /* ProductListViewModel.swift */,
+				3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */,
 				3B3AEDDC2ADB17880070197C /* ProductCell.swift */,
 			);
 			path = ProductList;
@@ -493,6 +496,7 @@
 				3B3AEDEB2ADBF86D0070197C /* ProductDetail.swift in Sources */,
 				3B3AED9E2AD9BC4D0070197C /* TabBarPage.swift in Sources */,
 				3B3AEDE92ADBF1950070197C /* ProductDetailViewModel.swift in Sources */,
+				3B3AEDEF2ADD44870070197C /* LoadingFooterView.swift in Sources */,
 				3B3AEDE72ADBECD40070197C /* ProductDetailCoordinator.swift in Sources */,
 				3B3AEDD72ADACFD90070197C /* ProductDetailRequest.swift in Sources */,
 				3B3AEDCE2ADAC8E90070197C /* ProductUseCase.swift in Sources */,

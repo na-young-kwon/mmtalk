@@ -84,16 +84,43 @@ final class ProductListViewController: UIViewController {
         group.interItemSpacing = .fixed(CGFloat(20))
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20)
+        
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: .init(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .absolute(50)
+            ),
+            elementKind: "footer",
+            alignment: .bottom
+        )
+        section.boundarySupplementaryItems = [footer]
         return UICollectionViewCompositionalLayout(section: section)
     }
     
     private func configureDataSource() {
-        let productCellRegistration = UICollectionView.CellRegistration<ProductCell, Product> { (cell, indexPath, data) in
+        let productCellRegistration = UICollectionView.CellRegistration
+        <ProductCell, Product> { (cell, indexPath, data) in
             cell.bindViewModel(with: data)
         }
-        dataSource = UICollectionViewDiffableDataSource<Section, Product>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, item: Product) -> UICollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: productCellRegistration, for: indexPath, item: item)
+        let footerRegistration = UICollectionView.SupplementaryRegistration
+        <LoadingFooterView>(elementKind: "footer") {
+            (supplementaryView, string, indexPath) in
+        }
+        dataSource = UICollectionViewDiffableDataSource<Section, Product>(
+            collectionView: collectionView
+        ) { (collectionView: UICollectionView, indexPath: IndexPath, item: Product
+            ) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(
+                using: productCellRegistration,
+                for: indexPath,
+                item: item
+            )
+        }
+        dataSource.supplementaryViewProvider = { view, kind, index in
+            return self.collectionView.dequeueConfiguredReusableSupplementary(
+                using: footerRegistration,
+                for: index
+            )
         }
     }
     
