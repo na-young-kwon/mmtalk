@@ -11,16 +11,19 @@ import RxSwift
 import RxCocoa
 
 final class ProductListViewController: UIViewController {
+    enum Section {
+        case list
+    }
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseID)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
     var viewModel: ProductListViewModel!
     private let disposeBag = DisposeBag()
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Product>!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,9 +32,9 @@ final class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureNavigationBar()
         configureUI()
+        configureDataSource()
         bindViewModel()
     }
     
@@ -84,6 +87,23 @@ final class ProductListViewController: UIViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
     
+    private func configureDataSource() {
+        let productCellRegistration = UICollectionView.CellRegistration<ProductCell, Product> { (cell, indexPath, data) in
+            cell.bindViewModel(with: data)
+        }
+        dataSource = UICollectionViewDiffableDataSource<Section, Product>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, item: Product) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: productCellRegistration, for: indexPath, item: item)
+        }
+    }
+    
+    private func applySnapshot(with products: [Product]) {
+        var snapShot = NSDiffableDataSourceSnapshot<Section, Product>()
+        snapShot.appendSections([.list])
+        snapShot.appendItems(products)
+        dataSource.apply(snapShot, animatingDifferences: false)
+    }
+    
     private func bindViewModel() {
         let selectedLocation = PublishSubject<Product>()
         let fetchMoreProduct = PublishSubject<Void>()
@@ -97,13 +117,10 @@ final class ProductListViewController: UIViewController {
         let output = viewModel.transform(input: input)
         
         output.products
-            .bind(
-                to: collectionView.rx.items(
-                    cellIdentifier: ProductCell.reuseID,
-                    cellType: ProductCell.self)
-            ) { _, item, cell  in
-                cell.bindViewModel(with: item)
-            }
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] products in
+                self?.applySnapshot(with: products)
+            })
             .disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(Product.self)
