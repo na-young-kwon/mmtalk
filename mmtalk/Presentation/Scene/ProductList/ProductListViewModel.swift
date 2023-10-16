@@ -20,6 +20,7 @@ final class ProductListViewModel: ViewModelType {
     
     struct Output {
         let products = BehaviorRelay<[Product]>(value: [])
+        let isFetching = BehaviorRelay<Bool>(value: false)
     }
     
     private let useCase: ProductUseCase

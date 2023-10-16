@@ -83,8 +83,12 @@ final class ProductListViewController: UIViewController {
         )
         group.interItemSpacing = .fixed(CGFloat(20))
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20)
-        
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 20,
+            bottom: 10,
+            trailing: 20
+        )
         let footer = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
@@ -135,6 +139,7 @@ final class ProductListViewController: UIViewController {
         let selectedLocation = PublishSubject<Product>()
         let fetchMoreProduct = PublishSubject<Void>()
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
+        var needFetching = true
         
         let input = ProductListViewModel.Input(
             viewWillAppear: viewWillAppear,
@@ -147,6 +152,7 @@ final class ProductListViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] products in
                 self?.applySnapshot(with: products)
+                needFetching = true
             })
             .disposed(by: disposeBag)
         
@@ -158,13 +164,14 @@ final class ProductListViewController: UIViewController {
         
         collectionView.rx.didScroll
             .skip(1)
-            .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in
+                guard needFetching == true else { return }
                 let offsetY = self.collectionView.contentOffset.y
                 let contentHeight = self.collectionView.contentSize.height
                 let height = self.collectionView.frame.height
                 
                 if offsetY > (contentHeight - height) {
+                    needFetching = false
                     fetchMoreProduct.onNext(())
                 }
             })
