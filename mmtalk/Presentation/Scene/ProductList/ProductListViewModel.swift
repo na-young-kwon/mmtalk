@@ -15,12 +15,11 @@ final class ProductListViewModel: ViewModelType {
     struct Input {
         let viewWillAppear: Observable<Void>
         let fetchMoreProduct: Observable<Void>
-        let itemSelected: Observable<Product>
+        let itemSelected: Observable<Product?>
     }
     
     struct Output {
         let products = BehaviorRelay<[Product]>(value: [])
-        let isFetching = BehaviorRelay<Bool>(value: false)
     }
     
     private let useCase: ProductUseCase
@@ -47,6 +46,7 @@ final class ProductListViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         input.itemSelected
+            .compactMap { $0 }
             .subscribe { [weak self] product in
                 self?.coordinator.pushDetailView(with: product.hash)
             }

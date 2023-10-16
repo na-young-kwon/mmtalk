@@ -112,8 +112,7 @@ final class ProductListViewController: UIViewController {
         }
         dataSource = UICollectionViewDiffableDataSource<Section, Product>(
             collectionView: collectionView
-        ) { (collectionView: UICollectionView, indexPath: IndexPath, item: Product
-            ) -> UICollectionViewCell? in
+        ) { (collectionView: UICollectionView, indexPath: IndexPath, item: Product) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(
                 using: productCellRegistration,
                 for: indexPath,
@@ -136,15 +135,14 @@ final class ProductListViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        let selectedLocation = PublishSubject<Product>()
+        var needFetching = true
+        let selectedProduct = PublishSubject<Product?>()
         let fetchMoreProduct = PublishSubject<Void>()
         let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
-        var needFetching = true
-        
         let input = ProductListViewModel.Input(
             viewWillAppear: viewWillAppear,
             fetchMoreProduct: fetchMoreProduct.asObserver(),
-            itemSelected: selectedLocation.asObservable()
+            itemSelected: selectedProduct.asObservable()
         )
         let output = viewModel.transform(input: input)
         
@@ -156,9 +154,10 @@ final class ProductListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        collectionView.rx.modelSelected(Product.self)
+        collectionView.rx.itemSelected
             .subscribe(onNext: { product in
-                selectedLocation.onNext(product)
+                let product = self.dataSource.itemIdentifier(for: product)
+                selectedProduct.onNext(product)
             })
             .disposed(by: disposeBag)
         
