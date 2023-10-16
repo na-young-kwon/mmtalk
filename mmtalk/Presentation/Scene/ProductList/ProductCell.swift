@@ -123,6 +123,6 @@ final class ProductCell: UICollectionViewCell {
         discountRateLabel.text = product.discountRate + "%"
         reviewCountLabel.text = product.reviewCount == "0" ? nil : product.reviewCount
         // url로 이미지 로드
-//        productImageView.image = UIImage(systemName: "square.and.arrow.up.circle.fill")
+        productImageView.setImage(product.imageURL)
     }
 }
