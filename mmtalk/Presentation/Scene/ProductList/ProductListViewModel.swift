@@ -14,8 +14,8 @@ final class ProductListViewModel: ViewModelType {
     
     struct Input {
         let viewWillAppear: Observable<Void>
-        let fetchMoreProduct: Observable<Void>
         let itemSelected: Observable<Product?>
+        let fetchMoreProduct: Observable<Void>
     }
     
     struct Output {

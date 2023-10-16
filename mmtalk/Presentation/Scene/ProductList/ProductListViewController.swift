@@ -16,11 +16,13 @@ final class ProductListViewController: UIViewController {
     }
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
-    
     var viewModel: ProductListViewModel!
     private let disposeBag = DisposeBag()
     private var dataSource: UICollectionViewDiffableDataSource<Section, Product>!
@@ -32,13 +34,20 @@ final class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
         configureUI()
+        setUpNavigationBar()
         configureDataSource()
         bindViewModel()
     }
     
-    private func configureNavigationBar() {
+    private func configureUI() {
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setUpNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .white
         appearance.titlePositionAdjustment = UIOffset(
@@ -53,12 +62,6 @@ final class ProductListViewController: UIViewController {
         navigationItem.title = "쇼핑몰"
     }
     
-    private func configureUI() {
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
     
     private func createLayout() -> UICollectionViewLayout {
         let item = NSCollectionLayoutItem(
@@ -136,13 +139,15 @@ final class ProductListViewController: UIViewController {
     
     private func bindViewModel() {
         var needFetching = true
+        let viewWillAppear = rx.sentMessage(
+            #selector(UIViewController.viewWillAppear(_:))
+        ).map { _ in }
         let selectedProduct = PublishSubject<Product?>()
         let fetchMoreProduct = PublishSubject<Void>()
-        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
         let input = ProductListViewModel.Input(
             viewWillAppear: viewWillAppear,
-            fetchMoreProduct: fetchMoreProduct.asObserver(),
-            itemSelected: selectedProduct.asObservable()
+            itemSelected: selectedProduct.asObservable(),
+            fetchMoreProduct: fetchMoreProduct.asObserver()
         )
         let output = viewModel.transform(input: input)
         

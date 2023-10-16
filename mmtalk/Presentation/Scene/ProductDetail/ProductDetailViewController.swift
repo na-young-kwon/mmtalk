@@ -22,9 +22,8 @@ final class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-        configureNavigationBar()
+        setUpNavigationBar()
         bindViewModel()
     }
     
@@ -39,7 +38,7 @@ final class ProductDetailViewController: UIViewController {
         }
     }
     
-    private func configureNavigationBar() {
+    private func setUpNavigationBar() {
         let backButton = UIBarButtonItem()
         backButton.title = "상품 상세보기"
         backButton.tintColor = .black
@@ -47,7 +46,9 @@ final class ProductDetailViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
+        let viewWillAppear = rx.sentMessage(
+            #selector(UIViewController.viewWillAppear(_:))
+        ).map { _ in }
         let input = ProductDetailViewModel.Input(viewWillAppear: viewWillAppear)
         let output = viewModel.transform(input: input)
         
