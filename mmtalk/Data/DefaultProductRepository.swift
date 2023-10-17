@@ -15,8 +15,8 @@ final class DefaultProductRepository: ProductRepository {
         self.service = service
     }
     
-    func fetchProductList(for offset: String) -> Observable<ProductListDTO> {
-        service.fetchProductList(for: offset)
+    func fetchProductList(for offset: Int) -> Observable<ProductListDTO> {
+        service.fetchProductList(for: String(offset))
     }
     
     func fetchProductDetail(for hash: String) -> Observable<ProductDetailDTO> {

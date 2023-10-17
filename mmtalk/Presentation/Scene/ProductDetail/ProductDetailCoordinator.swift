@@ -1,13 +1,14 @@
 //
-//  ProductListCoordinator.swift
+//  ProductDetailCoordinator.swift
 //  mmtalk
 //
-//  Created by 권나영 on 2023/10/14.
+//  Created by 권나영 on 2023/10/15.
 //
 
+import Foundation
 import UIKit
 
-final class ProductListCoordinator: Coordinator {
+final class ProductDetailCoordinator: Coordinator {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
@@ -15,23 +16,21 @@ final class ProductListCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
-        let viewController = ProductListViewController()
+    func start() { }
+    
+    func start(with hash: String) {
+        let viewController = ProductDetailViewController()
         let productService = ProductService(apiProvider: DefaultAPIProvider())
         let productRepository = DefaultProductRepository(service: productService)
         let useCase = DefaultProductUseCase(productRepository: productRepository)
-        let coordinator = ProductListCoordinator(navigationController)
-
-        let viewModel = ProductListViewModel(
+        let coordinator = ProductDetailCoordinator(navigationController)
+        
+        let viewModel = ProductDetailViewModel(
+            hash: hash,
             useCase: useCase,
             coordinator: coordinator
         )
         viewController.viewModel = viewModel
-        navigationController.pushViewController(viewController, animated: false)
-    }
-    
-    func pushDetailView(with hash: String) {
-        let coordinator = ProductDetailCoordinator(navigationController)
-        coordinator.start(with: hash)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

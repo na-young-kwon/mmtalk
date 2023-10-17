@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Product {
+struct Product: Hashable {
+    let id = UUID()
     let hash: String
     let name: String
     let brand: String?
@@ -17,4 +18,5 @@ struct Product {
     let reviewAverage: String
     let tags: [Tag]
     let imageURL: String
+    let isSoldOut: Bool
 }

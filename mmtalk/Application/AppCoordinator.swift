@@ -34,7 +34,7 @@ final class AppCoordinator: Coordinator {
         tabBarController.selectedIndex = TabBarPage.productList.pageNumber
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.tabBar.tintColor = .black
-        configureTabBarShadow(tabBar: tabBarController.tabBar)
+        setUpTabBarShadow(with: tabBarController.tabBar)
     }
     
     private func makeTabNavigationController(of page: TabBarPage) -> UINavigationController {
@@ -59,17 +59,17 @@ final class AppCoordinator: Coordinator {
         }
     }
     
-    private func configureTabBarShadow(tabBar: UITabBar) {
+    private func setUpTabBarShadow(with tabBar: UITabBar) {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.shadowColor = .clear
         appearance.backgroundColor = .white
         tabBar.standardAppearance = appearance
+        tabBar.layer.shadowPath = UIBezierPath(rect: tabBar.bounds).cgPath
+        tabBar.layer.shadowRadius = 6
+        tabBar.layer.shadowOpacity = 0.15
         tabBar.layer.masksToBounds = false
         tabBar.layer.shadowColor = UIColor.black.cgColor
-        tabBar.layer.shadowOpacity = 0.15
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-        tabBar.layer.shadowRadius = 6
     }
 }
-

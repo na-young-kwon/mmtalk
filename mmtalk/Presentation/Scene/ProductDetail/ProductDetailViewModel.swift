@@ -1,0 +1,49 @@
+//
+//  ProductDetailViewModel.swift
+//  mmtalk
+//
+//  Created by 권나영 on 2023/10/15.
+//
+
+import Foundation
+import RxSwift
+
+final class ProductDetailViewModel: ViewModelType {
+    private let hash: String
+    private let disposeBag = DisposeBag()
+    
+    struct Input {
+        let viewWillAppear: Observable<Void>
+    }
+    
+    struct Output {
+        let product = PublishSubject<ProductDetail>()
+    }
+    
+    private let useCase: ProductUseCase
+    private let coordinator: ProductDetailCoordinator
+    
+    init(hash: String, useCase: ProductUseCase, coordinator: ProductDetailCoordinator) {
+        self.hash = hash
+        self.useCase = useCase
+        self.coordinator = coordinator
+    }
+    
+    func transform(input: Input) -> Output {
+        let output = Output()
+        
+        useCase.productDetail
+            .subscribe(onNext: { product in
+                output.product.onNext(product)
+            })
+            .disposed(by: disposeBag)
+        
+        input.viewWillAppear
+            .subscribe { _ in
+                self.useCase.fetchProductDetail(for: self.hash)
+            }
+            .disposed(by: disposeBag)
+        
+        return output
+    }
+}

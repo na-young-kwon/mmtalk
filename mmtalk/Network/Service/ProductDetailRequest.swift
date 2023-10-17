@@ -10,6 +10,7 @@ import Foundation
 struct ProductDetailRequest: APIRequest {
     typealias Response = ProductDetailDTO
     
+    private let apiKey = Bundle.main.apiKey
     let httpMethod: HTTPMethod = .get
     let urlHost = "https://assignment.mobile.mmtalk.kr/rest/"
     let hash: String
@@ -18,6 +19,6 @@ struct ProductDetailRequest: APIRequest {
     }
     var parameters: [String : String] {[:]}
     var headers: [String : String]? {[
-        "authorization": "Bearer 2G8QgQ5RCM"
+        "authorization": apiKey
     ]}
 }

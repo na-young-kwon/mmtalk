@@ -18,13 +18,14 @@ struct ProductListDTO: APIResponse {
         return products.map { Product(
             hash: $0.hash,
             name: $0.name,
-            brand: $0.brand,
+            brand: $0.brand?.trimmingCharacters(in: ["|"]),
             discountRate: String($0.discountRate),
-            sellPrice: String($0.sellPrice),
+            sellPrice: String($0.sellPrice.decimalFormat ?? "0"),
             reviewCount: String($0.reviewCount),
             reviewAverage: String($0.reviewAverage),
             tags: $0.tags,
-            imageURL: $0.imageURL
+            imageURL: $0.imageURL,
+            isSoldOut: $0.soldOut
         )}
     }
     
@@ -43,12 +44,13 @@ struct ProductListDTO: APIResponse {
         let sellPrice: Int
         let imageURL: String
         let reviewCount: Int
-        let reviewAverage: Int
+        let reviewAverage: Double
         let tags: [Tag]
         let discountRate: Int
+        let soldOut: Bool
         private let partnerNo: Int
         private let normalPrice: Int
-        private let soldOut: Bool
+        
         
         enum CodingKeys: String, CodingKey {
             case hash, name, brand, soldOut
