@@ -43,7 +43,7 @@ struct ProductListDTO: APIResponse {
         let sellPrice: Int
         let imageURL: String
         let reviewCount: Int
-        let reviewAverage: Int
+        let reviewAverage: Double
         let tags: [Tag]
         let discountRate: Int
         private let partnerNo: Int
