@@ -19,8 +19,8 @@ protocol APIRequest {
 
 extension APIRequest {
     var url: URL? {
-        var urlComponents = URLComponents(string: self.urlHost + self.urlPath)
-        let queries = self.parameters.map { URLQueryItem(name: $0, value: $1) }
+        var urlComponents = URLComponents(string: urlHost + urlPath)
+        let queries = parameters.map { URLQueryItem(name: $0, value: $1) }
         urlComponents?.queryItems = queries
         
         guard let url = urlComponents?.url else {

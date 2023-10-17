@@ -53,8 +53,8 @@ final class ProductListViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         input.fetchMoreProduct
-            .subscribe { product in
-                self.useCase.fetchProducts()
+            .subscribe { [weak self] product in
+                self?.useCase.fetchProducts()
             }
             .disposed(by: disposeBag)
         

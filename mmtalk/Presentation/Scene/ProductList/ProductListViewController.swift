@@ -160,8 +160,8 @@ final class ProductListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         collectionView.rx.itemSelected
-            .subscribe(onNext: { product in
-                let product = self.dataSource.itemIdentifier(for: product)
+            .subscribe(onNext: { [weak self] product in
+                let product = self?.dataSource.itemIdentifier(for: product)
                 selectedProduct.onNext(product)
             })
             .disposed(by: disposeBag)

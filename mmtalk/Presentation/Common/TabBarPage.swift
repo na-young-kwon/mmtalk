@@ -12,16 +12,21 @@ enum TabBarPage: CaseIterable {
     
     init?(index: Int) {
         switch index {
-            case 0: self = .productList
-            case 1: self = .myPage
-            default: return nil
+        case 0:
+            self = .productList
+        case 1:
+            self = .myPage
+        default:
+            return nil
         }
     }
     
     var pageNumber: Int {
         switch self {
-            case .productList: return 0
-            case .myPage: return 1
+        case .productList:
+            return 0
+        case .myPage:
+            return 1
         }
     }
     

@@ -32,9 +32,9 @@ final class DefaultProductUseCase: ProductUseCase {
     
     func fetchProductDetail(for hash: String) {
         productRepository.fetchProductDetail(for: hash)
-            .subscribe(onNext: { productDetailDTO in
+            .subscribe(onNext: { [weak self] productDetailDTO in
                 let detail = ProductDetail(title: productDetailDTO.name)
-                self.productDetail.onNext(detail)
+                self?.productDetail.onNext(detail)
             })
             .disposed(by: disposeBag)
     }
