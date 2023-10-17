@@ -24,7 +24,8 @@ struct ProductListDTO: APIResponse {
             reviewCount: String($0.reviewCount),
             reviewAverage: String($0.reviewAverage),
             tags: $0.tags,
-            imageURL: $0.imageURL
+            imageURL: $0.imageURL,
+            isSoldOut: $0.soldOut
         )}
     }
     
@@ -46,9 +47,10 @@ struct ProductListDTO: APIResponse {
         let reviewAverage: Double
         let tags: [Tag]
         let discountRate: Int
+        let soldOut: Bool
         private let partnerNo: Int
         private let normalPrice: Int
-        private let soldOut: Bool
+        
         
         enum CodingKeys: String, CodingKey {
             case hash, name, brand, soldOut

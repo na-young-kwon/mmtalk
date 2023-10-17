@@ -16,11 +16,11 @@ struct ProductDetailDTO: APIResponse {
     let soldOut: Bool
     let imageURL: String
     let reviewCount: Int
-    let reviewAverage: Int
+    let reviewAverage: Double
     let partnerNo: Int
     let tags: [Tag]
     let discountRate: Int
-    let deliveryDetail: DeliveryDetail
+    let deliveryDetail: DeliveryDetail?
     let deliveryAreaDetails: [DeliveryAreaDetails]
 
     enum CodingKeys: String, CodingKey {

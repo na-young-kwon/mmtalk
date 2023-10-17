@@ -32,8 +32,7 @@ final class ProductDetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.top.equalToSuperview().offset(120)
         }
     }

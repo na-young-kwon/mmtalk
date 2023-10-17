@@ -57,9 +57,8 @@ final class ProductCell: UICollectionViewCell {
     
     private let reviewCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemGray4
+        label.textColor = .systemGray2
         label.font = .systemFont(ofSize: 12)
-        label.backgroundColor = .blue
         return label
     }()
     
@@ -70,6 +69,8 @@ final class ProductCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 5
         imageView.contentMode = .scaleAspectFit
         imageView.layer.borderColor = UIColor.systemGray6.cgColor
+        
+        
         return imageView
     }()
     
@@ -112,17 +113,33 @@ final class ProductCell: UICollectionViewCell {
     }
     
     func bindViewModel(with product: Product) {
-        brandLabel.text = product.brand
-        titleLabel.text = product.name
-        priceLabel.text = product.sellPrice + "원"
         if let tag = product.tags.first {
             tagLabel.text = tag.rawValue
         } else {
             tagLabel.isHidden = true
         }
+        brandLabel.text = product.brand
+        titleLabel.text = product.name
+        priceLabel.text = product.sellPrice + "원"
         discountRateLabel.text = product.discountRate + "%"
-        reviewCountLabel.text = product.reviewCount == "0" ? nil : product.reviewCount
-        // url로 이미지 로드
+        reviewCountLabel.text = product.reviewCount == "0" ? nil :"리뷰 \(product.reviewCount)"
         productImageView.setImage(product.imageURL)
+        showSoldOut(with: product.isSoldOut)
+    }
+    
+    private func showSoldOut(with soldOut: Bool) {
+        guard soldOut else {
+            return
+        }
+        let dimmedView = UILabel()
+        dimmedView.text = "품절"
+        dimmedView.textAlignment = .center
+        dimmedView.textColor = .white
+        dimmedView.font = .boldSystemFont(ofSize: 22)
+        dimmedView.backgroundColor = .black.withAlphaComponent(0.4)
+        productImageView.addSubview(dimmedView)
+        dimmedView.snp.makeConstraints { make in
+            make.edges.equalTo(productImageView)
+        }
     }
 }

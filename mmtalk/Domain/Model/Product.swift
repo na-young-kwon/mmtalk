@@ -18,4 +18,5 @@ struct Product: Hashable {
     let reviewAverage: String
     let tags: [Tag]
     let imageURL: String
+    let isSoldOut: Bool
 }
