@@ -69,14 +69,11 @@ final class ProductCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 5
         imageView.contentMode = .scaleAspectFit
         imageView.layer.borderColor = UIColor.systemGray6.cgColor
-        
-        
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configureUI()
         configureConstraint()
     }
@@ -88,6 +85,7 @@ final class ProductCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         productImageView.image = nil
+        tagLabel.isHidden = false
     }
     
     private func configureUI() {
@@ -114,7 +112,7 @@ final class ProductCell: UICollectionViewCell {
     
     func bindViewModel(with product: Product) {
         if let tag = product.tags.first {
-            tagLabel.text = tag.rawValue
+            tagLabel.text = tag.description
         } else {
             tagLabel.isHidden = true
         }
