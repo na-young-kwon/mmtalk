@@ -53,6 +53,8 @@
 		3B3AEDEF2ADD44870070197C /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */; };
 		3B3AEDF12ADD8ED40070197C /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDF02ADD8ED40070197C /* ImageCacheService.swift */; };
 		3B3AEDF52ADD96C00070197C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AEDF42ADD96C00070197C /* UIImageView+Extension.swift */; };
+		3BAE59AC2ADE65C800AA387D /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BAE59AB2ADE65C800AA387D /* Secret.plist */; };
+		3BAE59AE2ADE661600AA387D /* mmtalk++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE59AD2ADE661600AA387D /* mmtalk++Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
 		3B3AEDF02ADD8ED40070197C /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 		3B3AEDF42ADD96C00070197C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		3BAE59AB2ADE65C800AA387D /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
+		3BAE59AD2ADE661600AA387D /* mmtalk++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "mmtalk++Bundle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				3B2B617B2AD9B2AF00428AB4 /* Info.plist */,
+				3BAE59AB2ADE65C800AA387D /* Secret.plist */,
+				3BAE59AD2ADE661600AA387D /* mmtalk++Bundle.swift */,
 				3B18AC592AD9BB35004D0825 /* Application */,
 				3B18AC5A2AD9BB3E004D0825 /* Presentation */,
 				3B18AC5B2AD9BB5E004D0825 /* Domain */,
@@ -479,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAE59AC2ADE65C800AA387D /* Secret.plist in Resources */,
 				3B2B61772AD9B2AF00428AB4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +541,7 @@
 				3B2B61702AD9B2AE00428AB4 /* SceneDelegate.swift in Sources */,
 				3B3AEDDB2ADAD8FA0070197C /* Tag.swift in Sources */,
 				3B3AEDC32ADAAE590070197C /* ProductListViewModel.swift in Sources */,
+				3BAE59AE2ADE661600AA387D /* mmtalk++Bundle.swift in Sources */,
 				3B3AEDA92ADA82F00070197C /* MyPageViewController.swift in Sources */,
 				3B3AEDCB2ADAB12F0070197C /* Product.swift in Sources */,
 			);
