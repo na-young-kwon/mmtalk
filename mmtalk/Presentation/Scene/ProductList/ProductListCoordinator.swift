@@ -19,7 +19,7 @@ final class ProductListCoordinator: Coordinator {
         let viewController = ProductListViewController()
         let productService = ProductService(apiProvider: DefaultAPIProvider())
         let productRepository = DefaultProductRepository(service: productService)
-        let useCase = DefaultProductUseCase(productRepository: productRepository)
+        let useCase = ProductUseCase(productRepository: productRepository)
         let coordinator = ProductListCoordinator(navigationController)
 
         let viewModel = ProductListViewModel(

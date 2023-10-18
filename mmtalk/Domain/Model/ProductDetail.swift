@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ProductDetail {
+struct ProductDetail: Equatable {
     let title: String
 }
