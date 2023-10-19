@@ -16,10 +16,7 @@ final class ProductListViewController: UIViewController {
     }
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: layout
-        )
+        let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -79,7 +76,7 @@ final class ProductListViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(150)
+                heightDimension: .estimated(500)
             ),
             subitem: item,
             count: 2
