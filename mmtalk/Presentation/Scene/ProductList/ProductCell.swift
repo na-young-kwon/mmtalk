@@ -112,7 +112,6 @@ final class ProductCell: UICollectionViewCell {
         }
         productImageView.snp.makeConstraints { make in
             make.width.equalTo(productImageView.snp.height)
-            make.height.equalTo(contentView.snp.width).priority(.high)
         }
     }
     

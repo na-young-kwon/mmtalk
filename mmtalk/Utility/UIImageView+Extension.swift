@@ -27,7 +27,8 @@ extension UIImageView {
                 return
             }
             DispatchQueue.main.async {
-                if let data = data, let image = UIImage(data: data) {
+                if let data = data,
+                   let image = UIImage(data: data) {
                     self.image = image
                     ImageCacheService.shared.saveIntoMemory(image, with: imageURL.path)
                     ImageCacheService.shared.saveIntoDisk(image, with: imageURL)

@@ -10,7 +10,10 @@ import UIKit
 final class ImageCacheService {
     static let shared = ImageCacheService()
     private var cache = NSCache<NSString, UIImage>()
-    private init() {}
+    private init() {
+        // NSCache의 costLimit 50메가바이트로 초기화
+        cache.totalCostLimit = 52428800
+    }
     
     func checkMemory(with url: URL) -> UIImage? {
         let key = NSString(string: url.path)
