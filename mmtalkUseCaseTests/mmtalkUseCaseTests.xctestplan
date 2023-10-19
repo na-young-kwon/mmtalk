@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "856693FE-281B-4D14-9890-A48DE6948F76",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:mmtalk.xcodeproj",
+        "identifier" : "3B2B617F2AD9B2AF00428AB4",
+        "name" : "mmtalkUseCaseTests"
+      }
+    }
+  ],
+  "version" : 1
+}

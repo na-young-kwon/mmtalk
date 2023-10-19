@@ -126,7 +126,7 @@
 		3B7B6F912ADFD9F6002C9870 /* MockProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductRepository.swift; sourceTree = "<group>"; };
 		3BAE59AB2ADE65C800AA387D /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		3BAE59AD2ADE661600AA387D /* mmtalk++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "mmtalk++Bundle.swift"; sourceTree = "<group>"; };
-		3BD157F42AE112B20093AFC4 /* mmtalkUseCaseTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = mmtalkUseCaseTests.xctestplan; path = ../mmtalkUseCaseTests.xctestplan; sourceTree = "<group>"; };
+		3BD157F52AE113D50093AFC4 /* mmtalkUseCaseTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = mmtalkUseCaseTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +226,6 @@
 		3B2B61612AD9B2AE00428AB4 = {
 			isa = PBXGroup;
 			children = (
-				3BD157F42AE112B20093AFC4 /* mmtalkUseCaseTests.xctestplan */,
 				3B2B616C2AD9B2AE00428AB4 /* mmtalk */,
 				3B2B61832AD9B2AF00428AB4 /* mmtalkUseCaseTests */,
 				3B2B616B2AD9B2AE00428AB4 /* Products */,
@@ -263,6 +262,7 @@
 		3B2B61832AD9B2AF00428AB4 /* mmtalkUseCaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				3BD157F52AE113D50093AFC4 /* mmtalkUseCaseTests.xctestplan */,
 				3B7B6F7C2ADFD1F1002C9870 /* Mock */,
 				3B2B61842AD9B2AF00428AB4 /* ProductUseCaseTests.swift */,
 			);
@@ -303,8 +303,8 @@
 				3B2B61712AD9B2AE00428AB4 /* ProductListViewController.swift */,
 				3B3AEDA52ADA7E1F0070197C /* HomeCoordinator.swift */,
 				3B3AEDC22ADAAE590070197C /* ProductListViewModel.swift */,
-				3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */,
 				3B3AEDDC2ADB17880070197C /* ProductCell.swift */,
+				3B3AEDEE2ADD44870070197C /* LoadingFooterView.swift */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";

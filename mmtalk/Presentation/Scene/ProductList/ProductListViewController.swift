@@ -67,7 +67,7 @@ final class ProductListViewController: UIViewController {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(70)
+                heightDimension: .estimated(100)
             )
         )
         item.edgeSpacing = NSCollectionLayoutEdgeSpacing(

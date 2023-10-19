@@ -67,7 +67,7 @@ final class ProductCell: UICollectionViewCell {
         imageView.layer.borderWidth = 1
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.borderColor = UIColor.systemGray6.cgColor
         return imageView
     }()
@@ -84,6 +84,12 @@ final class ProductCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        brandLabel.text = nil
+        titleLabel.text = nil
+        discountRateLabel.text = nil
+        priceLabel.text = nil
+        tagLabel.text = nil
+        reviewCountLabel.text = nil
         productImageView.image = nil
         tagLabel.isHidden = false
     }
@@ -105,8 +111,8 @@ final class ProductCell: UICollectionViewCell {
             make.edges.equalTo(contentView)
         }
         productImageView.snp.makeConstraints { make in
-            make.width.equalTo(contentView)
-            make.height.equalTo(contentView.snp.width)
+            make.width.equalTo(productImageView.snp.height)
+            make.height.equalTo(contentView.snp.width).priority(.medium)
         }
     }
     
