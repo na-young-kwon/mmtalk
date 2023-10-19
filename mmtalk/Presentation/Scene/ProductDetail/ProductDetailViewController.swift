@@ -53,8 +53,8 @@ final class ProductDetailViewController: UIViewController {
         
         output.product
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { product in
-                self.titleLabel.text = product.title
+            .subscribe(onNext: { [weak self] product in
+                self?.titleLabel.text = product.title
             })
             .disposed(by: disposeBag)
     }

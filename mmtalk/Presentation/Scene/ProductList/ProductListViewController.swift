@@ -16,10 +16,7 @@ final class ProductListViewController: UIViewController {
     }
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: layout
-        )
+        let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -67,7 +64,7 @@ final class ProductListViewController: UIViewController {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(70)
+                heightDimension: .estimated(100)
             )
         )
         item.edgeSpacing = NSCollectionLayoutEdgeSpacing(
@@ -79,7 +76,7 @@ final class ProductListViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(150)
+                heightDimension: .estimated(500)
             ),
             subitem: item,
             count: 2
@@ -160,8 +157,8 @@ final class ProductListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         collectionView.rx.itemSelected
-            .subscribe(onNext: { product in
-                let product = self.dataSource.itemIdentifier(for: product)
+            .subscribe(onNext: { [weak self] product in
+                let product = self?.dataSource.itemIdentifier(for: product)
                 selectedProduct.onNext(product)
             })
             .disposed(by: disposeBag)

@@ -10,7 +10,10 @@ import UIKit
 final class ImageCacheService {
     static let shared = ImageCacheService()
     private var cache = NSCache<NSString, UIImage>()
-    private init() {}
+    private init() {
+        // NSCache의 costLimit 50메가바이트로 초기화
+        cache.totalCostLimit = 52428800
+    }
     
     func checkMemory(with url: URL) -> UIImage? {
         let key = NSString(string: url.path)
@@ -22,11 +25,11 @@ final class ImageCacheService {
     
     func saveIntoMemory(_ image: UIImage, with key: String) {
         let key = NSString(string: key)
-        self.cache.setObject(image, forKey: key)
+        cache.setObject(image, forKey: key)
     }
     
     func checkDisk(with imageURL: URL) -> UIImage? {
-        guard let filePath = self.createImagePath(with: imageURL),
+        guard let filePath = createImagePath(with: imageURL),
               FileManager.default.fileExists(atPath: filePath.path),
               let imageData = try? Data(contentsOf: filePath) else {
             return nil
@@ -37,7 +40,7 @@ final class ImageCacheService {
     }
     
     func saveIntoDisk(_ image: UIImage, with imageURL: URL) {
-        guard let filePath = self.createImagePath(with: imageURL) else { return }
+        guard let filePath = createImagePath(with: imageURL) else { return }
         FileManager.default.createFile(
             atPath: filePath.path,
             contents: image.pngData(),

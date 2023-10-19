@@ -8,30 +8,26 @@
 import UIKit
 
 final class AppCoordinator: Coordinator {
-    private let window: UIWindow
     var tabBarController: UITabBarController
     var childCoordinators: [Coordinator] = []
     
-    init(window: UIWindow) {
-        self.window = window
-        self.tabBarController = UITabBarController()
+    init(_ tabBarController: UITabBarController) {
+        self.tabBarController = tabBarController
     }
     
     func start() {
         let pages = TabBarPage.allCases
         let controllers = pages.map { makeTabNavigationController(of: $0) }
         configureTabBar(with: controllers)
-        configureRootView()
     }
     
-    private func configureRootView() {
-        window.rootViewController = tabBarController
-        window.makeKeyAndVisible()
+    private func selectPage(_ page: TabBarPage) {
+        tabBarController.selectedIndex = page.pageNumber
     }
     
     private func configureTabBar(with vc: [UIViewController]) {
         tabBarController.setViewControllers(vc, animated: false)
-        tabBarController.selectedIndex = TabBarPage.productList.pageNumber
+        selectPage(.home)
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.tabBar.tintColor = .black
         setUpTabBarShadow(with: tabBarController.tabBar)
@@ -50,9 +46,9 @@ final class AppCoordinator: Coordinator {
     
     private func startTabCoordinator(of page: TabBarPage, to navigationController: UINavigationController) {
         switch page {
-        case .productList:
-            let productListCoordinator = ProductListCoordinator(navigationController)
-            productListCoordinator.start()
+        case .home:
+            let homeCoordinator = HomeCoordinator(navigationController)
+            homeCoordinator.start()
         case .myPage:
             let myPageCoordinator = MyPageCoordinator(navigationController)
             myPageCoordinator.start()

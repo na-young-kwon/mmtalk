@@ -1,0 +1,158 @@
+
+{
+    "hash": "59E303779456F354CB4C87447155D612",
+    "name": "[~10/17특가] 디드롭스 베이비 비타민D 400 IU 2.5ml x 1개",
+    "brand": "|디드롭스|",
+    "sellPrc": 80000,
+    "normalPrc": 101300,
+    "soldOut": false,
+    "imgUrl": "https://static.shop.mmtalk.kr/_data/product/202309/07/f302d9d4e9364cca131954cf35ee025f.jpg",
+    "reviewCount": 0,
+    "reviewAvg": 0,
+    "partnerNo": 151,
+    "tags": [
+        "FREE_DELIVERY"
+    ],
+    "discountRate": 21,
+    "deliveryDetail": {
+        "isFree": true,
+        "freeLimit": 0,
+        "deliveryFee": 0,
+        "isBillingByAreaWhenFree": true,
+        "basedBy": "ORDER_PRICE"
+    },
+    "deliveryAreaDetails": [
+        {
+            "sido": "인천",
+            "gugun": "옹진군",
+            "dong": "대청면",
+            "addPrice": 9900
+        },
+        {
+            "sido": "인천",
+            "gugun": "옹진군",
+            "dong": "덕적면",
+            "addPrice": 7700
+        },
+        {
+            "sido": "인천",
+            "gugun": "옹진군",
+            "dong": "백령면",
+            "addPrice": 9900
+        },
+        {
+            "sido": "인천",
+            "gugun": "옹진군",
+            "dong": "북도면",
+            "addPrice": 6000
+        },
+        {
+            "sido": "인천",
+            "gugun": "옹진군",
+            "dong": "연평면",
+            "addPrice": 7700
+        },
+        {
+            "sido": "인천",
+            "gugun": "옹진군",
+            "dong": "자월면",
+            "addPrice": 7700
+        },
+        {
+            "sido": "인천",
+            "gugun": "강화군",
+            "dong": "교동면,삼산면,서도면",
+            "addPrice": 4000
+        },
+        {
+            "sido": "경기",
+            "gugun": "안산시 단원구",
+            "dong": "풍도동",
+            "addPrice": 6000
+        },
+        {
+            "sido": "전남",
+            "gugun": "영광군",
+            "dong": "낙월면",
+            "addPrice": 3000
+        },
+        {
+            "sido": "전남",
+            "gugun": "완도군",
+            "dong": "고금면,군외면,금당면,금일읍,노화읍,보길면,생일면,소안면,청산면",
+            "addPrice": 5000
+        },
+        {
+            "sido": "전남",
+            "gugun": "신안군",
+            "dong": "",
+            "addPrice": 5000
+        },
+        {
+            "sido": "전남",
+            "gugun": "진도군",
+            "dong": "조도면",
+            "addPrice": 5000
+        },
+        {
+            "sido": "전남",
+            "gugun": "여수시",
+            "dong": "묘도동",
+            "addPrice": 4000
+        },
+        {
+            "sido": "전남",
+            "gugun": "여수시",
+            "dong": "화정면",
+            "addPrice": 4500
+        },
+        {
+            "sido": "전남",
+            "gugun": "여수시",
+            "dong": "남면",
+            "addPrice": 5500
+        },
+        {
+            "sido": "전남",
+            "gugun": "여수시",
+            "dong": "삼산면",
+            "addPrice": 5500
+        },
+        {
+            "sido": "전북",
+            "gugun": "군산시",
+            "dong": "옥도면",
+            "addPrice": 5000
+        },
+        {
+            "sido": "전북",
+            "gugun": "부안군",
+            "dong": "위도면",
+            "addPrice": 3000
+        },
+        {
+            "sido": "경남",
+            "gugun": "통영시",
+            "dong": "사량면,산양읍,욕지면,용남면,한산면",
+            "addPrice": 4000
+        },
+        {
+            "sido": "제주",
+            "gugun": "제주시",
+            "dong": "추자면",
+            "addPrice": 5000
+        },
+        {
+            "sido": "제주",
+            "gugun": "제주시",
+            "dong": "우도면",
+            "addPrice": 4000
+        },
+        {
+            "sido": "경북",
+            "gugun": "울릉군",
+            "dong": "",
+            "addPrice": 6500
+        }
+    ]
+}

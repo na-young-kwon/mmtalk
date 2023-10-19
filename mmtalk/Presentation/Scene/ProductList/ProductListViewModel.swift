@@ -23,9 +23,9 @@ final class ProductListViewModel: ViewModelType {
     }
     
     private let useCase: ProductUseCase
-    private let coordinator: ProductListCoordinator
+    private let coordinator: HomeCoordinator
     
-    init(useCase: ProductUseCase, coordinator: ProductListCoordinator) {
+    init(useCase: ProductUseCase, coordinator: HomeCoordinator) {
         self.useCase = useCase
         self.coordinator = coordinator
     }
@@ -53,8 +53,8 @@ final class ProductListViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         input.fetchMoreProduct
-            .subscribe { product in
-                self.useCase.fetchProducts()
+            .subscribe { [weak self] product in
+                self?.useCase.fetchProducts()
             }
             .disposed(by: disposeBag)
         

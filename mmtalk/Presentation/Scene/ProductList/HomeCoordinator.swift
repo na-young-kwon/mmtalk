@@ -1,5 +1,5 @@
 //
-//  ProductListCoordinator.swift
+//  HomeCoordinator.swift
 //  mmtalk
 //
 //  Created by 권나영 on 2023/10/14.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProductListCoordinator: Coordinator {
+final class HomeCoordinator: Coordinator {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
@@ -19,8 +19,8 @@ final class ProductListCoordinator: Coordinator {
         let viewController = ProductListViewController()
         let productService = ProductService(apiProvider: DefaultAPIProvider())
         let productRepository = DefaultProductRepository(service: productService)
-        let useCase = DefaultProductUseCase(productRepository: productRepository)
-        let coordinator = ProductListCoordinator(navigationController)
+        let useCase = ProductUseCase(productRepository: productRepository)
+        let coordinator = HomeCoordinator(navigationController)
 
         let viewModel = ProductListViewModel(
             useCase: useCase,
@@ -31,7 +31,16 @@ final class ProductListCoordinator: Coordinator {
     }
     
     func pushDetailView(with hash: String) {
-        let coordinator = ProductDetailCoordinator(navigationController)
-        coordinator.start(with: hash)
+        let viewController = ProductDetailViewController()
+        let productService = ProductService(apiProvider: DefaultAPIProvider())
+        let productRepository = DefaultProductRepository(service: productService)
+        let useCase = ProductUseCase(productRepository: productRepository)
+        
+        let viewModel = ProductDetailViewModel(
+            hash: hash,
+            useCase: useCase
+        )
+        viewController.viewModel = viewModel
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
