@@ -23,9 +23,9 @@ final class ProductListViewModel: ViewModelType {
     }
     
     private let useCase: ProductUseCase
-    private let coordinator: ProductListCoordinator
+    private let coordinator: HomeCoordinator
     
-    init(useCase: ProductUseCase, coordinator: ProductListCoordinator) {
+    init(useCase: ProductUseCase, coordinator: HomeCoordinator) {
         self.useCase = useCase
         self.coordinator = coordinator
     }

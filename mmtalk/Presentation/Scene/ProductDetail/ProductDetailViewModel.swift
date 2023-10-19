@@ -21,12 +21,10 @@ final class ProductDetailViewModel: ViewModelType {
     }
     
     private let useCase: ProductUseCase
-    private let coordinator: ProductDetailCoordinator
     
-    init(hash: String, useCase: ProductUseCase, coordinator: ProductDetailCoordinator) {
+    init(hash: String, useCase: ProductUseCase) {
         self.hash = hash
         self.useCase = useCase
-        self.coordinator = coordinator
     }
     
     func transform(input: Input) -> Output {

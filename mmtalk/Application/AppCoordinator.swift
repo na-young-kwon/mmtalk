@@ -27,7 +27,7 @@ final class AppCoordinator: Coordinator {
     
     private func configureTabBar(with vc: [UIViewController]) {
         tabBarController.setViewControllers(vc, animated: false)
-        selectPage(.productList)
+        selectPage(.home)
         tabBarController.tabBar.backgroundColor = .systemBackground
         tabBarController.tabBar.tintColor = .black
         setUpTabBarShadow(with: tabBarController.tabBar)
@@ -46,9 +46,9 @@ final class AppCoordinator: Coordinator {
     
     private func startTabCoordinator(of page: TabBarPage, to navigationController: UINavigationController) {
         switch page {
-        case .productList:
-            let productListCoordinator = ProductListCoordinator(navigationController)
-            productListCoordinator.start()
+        case .home:
+            let homeCoordinator = HomeCoordinator(navigationController)
+            homeCoordinator.start()
         case .myPage:
             let myPageCoordinator = MyPageCoordinator(navigationController)
             myPageCoordinator.start()
