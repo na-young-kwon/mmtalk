@@ -111,7 +111,8 @@ final class ProductCell: UICollectionViewCell {
             make.edges.equalTo(contentView)
         }
         productImageView.snp.makeConstraints { make in
-            make.width.equalTo(productImageView.snp.height)
+            make.height.equalTo(productImageView.snp.width)
+            make.width.equalTo(contentView).priority(.high)
         }
     }
     
