@@ -1,10 +1,10 @@
 # 권나영
 
-마미톡 어플 클론코딩
+마미톡 클론코딩
 
 진행 기간: 2023.10.13 ~ 2023.10.20
 
-노션 링크: https://wiry-launch-6ab.notion.site/98da08fe4fa046b38dca50b8ebdfba19?pvs=4
+노션 링크: https://wiry-launch-6ab.notion.site/0dc5c461c8b2422fb8a3f422116649d3?pvs=4
 
 <br>
 
